@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://cn3ffutinm3yp"]
+
+[ext_resource type="Script" uid="uid://cl4aubidb7pfj" path="res://scripts/main_menu.gd" id="1_gcar1"]
+[ext_resource type="Texture2D" uid="uid://ca7gewugk5l1m" path="res://sprites/tela-inicial.jpeg" id="2_umhbg"]
+
+[node name="MainMenu" type="Control" unique_id=799284980]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_right = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gcar1")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=896637108]
+texture_filter = 2
+layout_mode = 0
+offset_right = 1286.0
+offset_bottom = 718.0
+texture = ExtResource("2_umhbg")
+
+[node name="Button" type="Button" parent="." unique_id=1543878513]
+texture_filter = 2
+texture_repeat = 2
+layout_mode = 0
+offset_left = 562.0
+offset_top = 325.0
+offset_right = 629.0
+offset_bottom = 356.0
+scale = Vector2(3, 3)
+text = "INICIAR"

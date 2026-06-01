@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://bqtvtequ4u8h6"]
+
+[ext_resource type="Script" uid="uid://b76f5siym0en8" path="res://scripts/portal_bullet.gd" id="1_3egpq"]
+[ext_resource type="Texture2D" uid="uid://cxx52cwbtlkk7" path="res://sprites/small_magical_animation_sheet.png" id="2_3egpq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s3nbg"]
+atlas = ExtResource("2_3egpq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wfjfo"]
+atlas = ExtResource("2_3egpq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xgryp"]
+atlas = ExtResource("2_3egpq")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1a3kp"]
+atlas = ExtResource("2_3egpq")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7se36"]
+atlas = ExtResource("2_3egpq")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rx7os"]
+atlas = ExtResource("2_3egpq")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0x2da"]
+atlas = ExtResource("2_3egpq")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xem2b"]
+atlas = ExtResource("2_3egpq")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0563o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s3nbg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wfjfo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xgryp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1a3kp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7se36")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rx7os")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0x2da")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xem2b")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3egpq"]
+size = Vector2(12, 12)
+
+[node name="PortalBullet" type="CharacterBody2D" unique_id=625027630]
+collision_layer = 4
+script = ExtResource("1_3egpq")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1727777019]
+modulate = Color(1, 1, 0, 1)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_0563o")
+frame_progress = 0.84940743
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1101768493]
+shape = SubResource("RectangleShape2D_3egpq")

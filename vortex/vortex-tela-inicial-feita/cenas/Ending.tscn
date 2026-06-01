@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bcgj8xm53dony"]
+
+[ext_resource type="Texture2D" uid="uid://d4ghb173eup71" path="res://sprites/Ending.png" id="1_elhkj"]
+
+[node name="Ending" type="Node2D" unique_id=1696749303]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=406087784]
+position = Vector2(640, 358.5)
+scale = Vector2(0.8307291, 0.6982421)
+texture = ExtResource("1_elhkj")
+
+[node name="Timer" type="Timer" parent="." unique_id=1337431675]
+wait_time = 5.0
+one_shot = true
+autostart = true
