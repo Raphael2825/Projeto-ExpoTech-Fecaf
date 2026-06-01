@@ -31,14 +31,15 @@ O projeto foi construído utilizando tecnologias modernas de desenvolvimento de 
 
 ## 📸 Demonstração / Imagens do Jogo
 
-
-| Gameplay 01 | Gameplay 02 |
-| <img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/d8f18f81-6bfb-4407-8748-7448526682db" />
-| <img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/c2da5dbd-201e-4e21-8a64-9fbb0ee2dade" />
-|
-| ![Preview 1]<img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/a2d3d646-db85-4248-a325-dfd563607f55" />
-| ![Preview 2]<img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/185387d0-b15d-44cf-a374-75abcf231d3e" />
-|
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/d8f18f81-6bfb-4407-8748-7448526682db" alt="Gameplay 01" width="80%" />
+  <br><br>
+  <img src="https://github.com/user-attachments/assets/c2da5dbd-201e-4e21-8a64-9fbb0ee2dade" alt="Gameplay 02" width="80%" />
+  <br><br>
+  <img src="https://github.com/user-attachments/assets/a2d3d646-db85-4248-a325-dfd563607f55" alt="Gameplay 03" width="80%" />
+  <br><br>
+  <img src="https://github.com/user-attachments/assets/185387d0-b15d-44cf-a374-75abcf231d3e" alt="Gameplay 04" width="80%" />
+</p>
 
 ---
 
