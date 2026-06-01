@@ -1,4 +1,4 @@
-# 🌀 VORTEX — Projeto ExpoTech FECAP
+# 🌀 VORTEX — Projeto ExpoTech FECAF
 
 > **VORTEX** é um jogo de ação e estratégia onde a mecânica de manipulação de portais e o combate preciso se encontram. Desenvolvido como projeto acadêmico para a **ExpoTech FECAF**.
 
