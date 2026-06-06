@@ -5,6 +5,10 @@ const SPEED = 50.0
 const CHASE_SPEED = 75.0
 const DAMAGE_AMOUNT = 25
 
+# --- ESPAÇAMENTO ENTRE ESQUELETOS ---
+@export var separation_distance := 40.0
+@export var separation_force := 18.0
+
 # --- REFERÊNCIAS ---
 @onready var wall_detector: RayCast2D = $wall_detector
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
@@ -25,16 +29,20 @@ func _ready() -> void:
 	anim.frame_changed.connect(_on_animation_frame_changed)
 
 func _physics_process(delta: float) -> void:
-	if is_dead: return
+	if is_dead:
+		return
 
 	_apply_gravity(delta)
 	_handle_movement()
+	_apply_separation()
 	_update_facing()
 	_update_animations()
 	move_and_slide()
+
 # ====================
 # MOVIMENTAÇÃO E IA
 # ====================
+
 func _apply_gravity(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -57,6 +65,31 @@ func _handle_movement() -> void:
 	else:
 		velocity.x = direction * SPEED
 
+func _apply_separation() -> void:
+	if anim.animation == "Attack" and anim.is_playing():
+		return
+
+	var separation := 0.0
+
+	for enemy in get_tree().get_nodes_in_group("enemy"):
+		if enemy == self:
+			continue
+
+		if not enemy is Node2D:
+			continue
+
+		# Evita considerar boss ou inimigos mortos sem colisão
+		if enemy.has_method("take_damage") == false:
+			continue
+
+		var distance_x = global_position.x - enemy.global_position.x
+		var distance = abs(distance_x)
+
+		if distance > 0 and distance < separation_distance:
+			separation += sign(distance_x) * (1.0 - distance / separation_distance)
+
+	velocity.x += separation * separation_force
+
 func _update_facing() -> void:
 	if anim.animation == "Attack" and anim.is_playing():
 		return
@@ -69,13 +102,16 @@ func _update_facing() -> void:
 	detection_area.position.x = 25 * modifier
 	
 	wall_detector.target_position.x = 7 * modifier
+
 # ====================
 # COMBATE / ATAQUE
 # ====================
+
 func _is_player_in_attack_range() -> bool:
 	for body in attack_area.get_overlapping_bodies():
 		if body.is_in_group("player"):
 			return true
+
 	return false
 
 func _on_attack_area_body_entered(body: Node2D) -> void:
@@ -95,17 +131,21 @@ func _on_animation_frame_changed() -> void:
 
 func deal_damage() -> void:
 	has_hit_player = true
+
 	for body in attack_area.get_overlapping_bodies():
 		if body.is_in_group("player") and body.has_method("take_damage"):
 			body.take_damage(DAMAGE_AMOUNT)
 
 func _on_attack_timer_timeout() -> void:
 	can_attack = true
+
 	if _is_player_in_attack_range() and not is_dead:
 		_start_attack()
+
 # ====================
 # DETECÇÃO DE JOGADOR
 # ====================
+
 func _on_detection_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		player = body
@@ -113,13 +153,17 @@ func _on_detection_area_body_entered(body: Node2D) -> void:
 func _on_detection_area_body_exited(body: Node2D) -> void:
 	if body == player:
 		player = null
+
 # ====================
 # SISTEMA DE DANO E ANIMAÇÕES
 # ====================
+
 func take_damage(amount: int) -> void:
-	if is_dead: return
+	if is_dead:
+		return
 	
 	health -= amount
+
 	if health <= 0:
 		_die()
 	else:
@@ -134,6 +178,7 @@ func _die() -> void:
 func _update_animations() -> void:
 	if anim.is_playing() and anim.animation in ["Attack", "hit", "Dead"]:
 		return
+
 	if is_on_floor() and abs(velocity.x) > 10:
 		anim.play("walk")
 	else:
@@ -144,7 +189,9 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		"Dead":
 			await get_tree().create_timer(1.5).timeout
 			queue_free()
+
 		"Attack", "hit":
 			anim.play("idle")
+
 			if _is_player_in_attack_range() and can_attack and not is_dead:
 				_start_attack()

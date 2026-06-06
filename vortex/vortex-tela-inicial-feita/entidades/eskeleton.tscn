@@ -543,6 +543,7 @@ script = ExtResource("1_xm7ou")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1385078742]
+visible = false
 position = Vector2(0, 4)
 shape = SubResource("CapsuleShape2D_xm7ou")
 
@@ -561,6 +562,7 @@ target_position = Vector2(7, 0)
 collision_mask = 6
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=455465630]
+visible = false
 self_modulate = Color(0, 0, 0, 1)
 light_mask = 4
 visibility_layer = 2
@@ -578,6 +580,7 @@ debug_color = Color(0.5143328, 0.09522555, 0.20402268, 0.41960785)
 one_shot = true
 
 [node name="DetectionArea" type="Area2D" parent="." unique_id=1371966487]
+visible = false
 light_mask = 6
 visibility_layer = 3
 collision_layer = 8
