@@ -15,6 +15,7 @@ O jogo foi projetado com suporte nativo a controles (Xbox / PlayStation) e atalh
 | **🟢 Botão Inferior de Ação (A / X)** | Pular |
 | **💥 Gatilho Direito (RT / R2)** | Disparar projétil de ataque |
 | **🌀 Gatilho Esquerdo (LT / L2)** | Disparar projétil de portal |
+| **🌀 Botão superior direito (RB / R1)** | Olhar mais à frente |
 | **❌ Botão Superior Esquerdo (LB / L1)** | Remover portal ativo |
 | **⌨️ Tecla [ F ]** | Pular de Fase *(Atalho de Debug)* |
 
